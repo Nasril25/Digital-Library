@@ -8,31 +8,36 @@ export class LibraryController {
         this.bookList = bookList;
     }
 
-    addBook(bookData) {
-        const newBook = new Book(
-            Date.now(),
-            bookData.title,
-            bookData.author,
-            bookData.year
-        );
-        this.books.push(newBook);
-        this.saveAndRender();
-        showAlert("success", "Buku berhasil ditambahkan!");
-    }
+   // LibraryController.js
+addBook(bookData) {
+    const newBook = new Book(
+        Date.now(),
+        bookData.title,
+        bookData.author,
+        bookData.year,
+        bookData.category // Pass category to the constructor
+    );
+    this.books.push(newBook);
+    this.saveAndRender();
+    showAlert("success", "Buku berhasil ditambahkan!");
+}
 
-    editBook(id) {
-        id = parseInt(id);
-        const book = this.books.find((b) => b.id === id);
-        if (book) {
-            this.bookForm.render((updatedBook) =>{
-                const index = this.books.findIndex((b) => b.id === id);
-                this.books[index] = { ...updatedBook, id };
-                this.saveAndRender();
-                showAlert("success", "Buku berhasil ditambahkan!");
-            });
-            this.bookForm.fillForm(book);
-        }
+
+   // LibraryController.js
+editBook(id) {
+    id = parseInt(id);
+    const book = this.books.find((b) => b.id === id);
+    if (book) {
+        this.bookForm.render((updatedBook) => {
+            const index = this.books.findIndex((b) => b.id === id);
+            this.books[index] = { ...updatedBook, id };
+            this.saveAndRender();
+            showAlert("success", "Buku berhasil diperbarui!");
+        });
+        this.bookForm.fillForm(book); // Fill form with existing book data, including category
     }
+}
+
     deleteBook(id) {
         id = parseInt(id);
 
@@ -42,14 +47,15 @@ export class LibraryController {
         showAlert("warning", "Buku berhasil dihapus!");
     }
 
-    saveAndRender() {
-        localStorage.setItem("books", JSON.stringify(this.books));
-        this.bookList.render(
-            this.books,
-            this.deleteBook.bind(this),
-            this.editBook.bind(this)
-        );
-    }
+  // LibraryController.js
+saveAndRender() {
+    localStorage.setItem("books", JSON.stringify(this.books));
+    this.bookList.render(
+        this.books,
+        this.deleteBook.bind(this),
+        this.editBook.bind(this)
+    );
+}
 
     toggleTheme() {
         const currentTheme = document.body.classList.contains("theme-dark")

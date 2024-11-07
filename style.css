@@ -1,125 +1,176 @@
 :root {
     --white: #ffffff;
-    --light-gray: #f0f0f3;
-    --dark-gray: #2e2e3e;
-    --dark-bg: #1a1a2e;
-    --light-bg: #c9d6ff;
-    --light-shadow: rgba(0, 0, 0, 0.15);
-    --dark-shadow: rgba(0, 0, 0, 0.2);
-    --highlight: #f1c40f;
+    --black: #0b0b0b;
+    --dark-gray: #1a1a1a;
+    --highlight-red: #ff4d4d;
+    --light-shadow: rgba(255, 255, 255, 0.1);
+    --dark-shadow: rgba(0, 0, 0, 0.4);
     --text-light: #e4e6eb;
-    --text-dark: #333; 
 }
 
-body.bg-gradient{
-    background: linear-gradient(to right, var(--light-bg), #e2e2e2);
+body.bg-gradient {
+    background: linear-gradient(to right, var(--black), #2e2e2e);
 }
 
 .card,
 .main-card,
 .neumorphic-button,
-.book-card{
-    background: var(--light-gray);
+.book-card {
+    background: var(--dark-gray);
     border-radius: 12px;
-    box-shadow: 5px 5px 10px var(--light-shadow),
-    -5px -5px 10px rgba(255, 255, 255, 0.7);
-    transition: background-color 0.3 ease, color 0.3 ease;
+    box-shadow: 5px 5px 10px var(--dark-shadow),
+                -5px -5px 10px var(--light-shadow);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--text-light);
 }
 
-.card, 
+.card,
 .book-card,
-.main-card{
+.main-card {
     padding: 15px;
+    border: 1px solid var(--highlight-red);
 }
 
-.main-card{
-    background: rgba(var(--white) 0.9);
+.main-card {
+    background: rgba(var(--dark-gray), 0.95);
+}
+
+h1, h2 {
+    color: var(--highlight-red);
 }
 
 .neumorphic-button,
 .neumorphic-input,
-.book-card{
+.book-card {
     padding: 10px 20px;
     margin-bottom: 15px;
+    background-color: var(--dark-gray);
+    color: var(--text-light);
 }
 
-.book-card{
-    margin-bottom: 15px;
+.book-card {
+    border: 1px solid var(--highlight-red);
 }
 
-.neumorphic-input{
+.neumorphic-input {
     border: none;
     outline: none;
-    padding: 10px;
+    color: var(--text-light);
 }
 
 .neumorphic-input,
-.neumorphic-button{
+.neumorphic-button {
     border-radius: 10px;
-    box-shadow: 5px 5px 10px var(--light-shadow),
-    -5px -5px 10px rgba(255, 255, 255, 0.7);
+    box-shadow: 5px 5px 10px var(--dark-shadow),
+                -5px -5px 10px var(--light-shadow);
 }
 
 .neumorphic-button:hover,
 .book-card:hover,
-.shadow-neumorphic:hover{
-    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2),
-    -3px -3px 7px rgba(255, 255, 255, 0.7);
+.shadow-neumorphic:hover {
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5),
+                -3px -3px 7px rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
 }
 
-.theme-dark{
-    background-color: var(--dark-bg) !important;
+.theme-dark {
+    background-color: var(--black) !important;
     color: var(--text-light) !important;
 }
 
 .theme-dark .card,
 .theme-dark .book-card,
-.theme-dark .main-card{
-    background-color: var(--dark-bg);
+.theme-dark .main-card {
+    background-color: var(--dark-gray);
     color: var(--text-light);
     box-shadow: 5px 5px 15px var(--dark-shadow),
-    -5px -5px 15px rgba(255, 255, 255, 0.1);
+                -5px -5px 15px rgba(255, 255, 255, 0.1);
 }
 
 .theme-dark .neumorphic-button,
-.theme-dark .neumorphic-input{
+.theme-dark .neumorphic-input {
     background: var(--dark-gray);
     color: var(--text-light);
 }
 
-.theme-dark .neumorphic-button:hover{
+.theme-dark .neumorphic-button:hover {
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3),
-    -3px -3px 7px rgba(255, 255, 255, 0.1);
+                -3px -3px 7px rgba(255, 255, 255, 0.1);
 }
 
-.theme-dark .btn-toggle{
-    color: var(--highlight);
+.theme-dark .btn-toggle {
+    color: var(--highlight-red);
 }
 
-.theme-dark .bi-moon-fill{
-    display: none;
+.shadow-neumorphic {
+    box-shadow: 6px 6px 15px var(--dark-shadow),
+                -6px -6px 15px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease-in-out;
 }
 
-.theme-light .bi-sun-fill{
-    display: none;
+.btn-primary {
+    background-color: var(--highlight-red);
+    border: none;
+    color: var(--white);
+    transition: all 0.3s ease-in-out;
 }
 
-.theme-light .btn-toggle{
+.btn-primary:hover {
+    background-color: #d43a3a;
+    box-shadow: 2px 2px 6px var(--dark-shadow),
+                -2px -2px 6px rgba(255, 255, 255, 0.2);
+}
+
+.btn-danger {
+    background-color: #d43a3a;
+    border: none;
+    color: var(--white);
+}
+
+.swal2-popup {
+    font-size: 1.1rem;
+    border-radius: 12px;
+    background-color: var(--dark-gray);
+    color: var(--text-light);
+}
+
+* {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Menambahkan transisi untuk perubahan warna background dan teks */
+body, .card, .book-card, .form-card, .neumorphic-button, .neumorphic-input {
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-dark .card,
+.theme-dark .book-card,
+.theme-dark .main-card {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+}
+
+.theme-light .card,
+.theme-light .book-card,
+.theme-light .main-card {
+    background-color: var(--light-gray);
     color: var(--text-dark);
 }
 
-.shadow-neumorphic{
-    box-shadow: 6px 6px 15px var(--dark-shadow),
-    -6px -6px 15px rgba(255, 255, 255, 0.8);
-    transition: all 0.3 ease-in-out;
+/* Transisi yang lebih cepat untuk perubahan teks dan latar belakang */
+.theme-dark .neumorphic-button,
+.theme-light .neumorphic-button {
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.swal2-popup{
-    font-size: 1.1rem;
-    border-radius: 12px;
+
+.edit-btn:hover {
+    color: #fff !important;
+    background-color: #856e08 !important;
+    border-color: #d32f2f !important;
 }
 
-*{
-    transition: background-color 0.3 ease, color 0.3 ease;
+.delete-btn:hover{
+    background-color: #8d1a1a;
 }
+
